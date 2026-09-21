@@ -15,6 +15,7 @@ for page in range(1, 51):
     for attempt in range(3):
         try:
             response = requests.get(url, headers=headers, timeout=10)
+            response.encoding = "utf-8"
             if response.status_code == 200:
                 break
         except requests.exceptions.RequestException:
